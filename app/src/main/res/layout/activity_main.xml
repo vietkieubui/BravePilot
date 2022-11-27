@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <ImageView
         android:layout_width="match_parent"
@@ -16,7 +16,6 @@
         android:layout_height="wrap_content"
         android:textSize="48sp"
         android:text="Brave Pilot!"
-        android:layout_marginTop="40dp"
         android:textColor="#ffffff"
         android:layout_above="@id/play"
         android:layout_below="@id/highScoreTxt"
@@ -38,6 +37,13 @@
         android:id="@+id/highScoreTxt"
         android:layout_margin="16dp"
         android:layout_alignParentRight="true"/>
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:id="@+id/volumeCtrl"
+        android:src="@drawable/ic_volume_up_black_24dp"/>
 
 
 </RelativeLayout>
