@@ -154,11 +154,8 @@ public class GameView extends SurfaceView implements Runnable {
             bullets.remove(bullet);
 
         for (Bird bird : birds) {
-
             bird.x -= bird.speed;
-
             if (bird.x + bird.width < 0) {
-
                 if (!bird.wasShot) {
                     isGameOver = true;
                     return;
@@ -177,7 +174,6 @@ public class GameView extends SurfaceView implements Runnable {
             }
 
             if (Rect.intersects(bird.getCollisionShape(), flight.getCollisionShape())) {
-
                 isGameOver = true;
                 return;
             }
