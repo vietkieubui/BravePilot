@@ -12,9 +12,7 @@ import android.widget.TextView;
 
 import com.example.bravepilot.R;
 
-import java.util.StringTokenizer;
-
-public class MainActivity extends AppCompatActivity {
+public class HighScoreActivity extends AppCompatActivity {
     private boolean isMute;
 
     @Override
@@ -22,21 +20,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
-        findViewById(R.id.play).setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_high_score);
+        findViewById(R.id.replay).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, GameActivity.class));
+                startActivity(new Intent(HighScoreActivity.this, GameActivity.class));
             }
         });
 
+        final SharedPreferences prefs = getSharedPreferences("game", MODE_PRIVATE);
         TextView highScoreTxt1 = findViewById(R.id.highScoreTxt1);
         TextView highScoreTxt2 = findViewById(R.id.highScoreTxt2);
         TextView highScoreTxt3 = findViewById(R.id.highScoreTxt3);
         TextView highScoreTxt4 = findViewById(R.id.highScoreTxt4);
         TextView highScoreTxt5 = findViewById(R.id.highScoreTxt5);
 
-        final SharedPreferences prefs = getSharedPreferences("game", MODE_PRIVATE);
         highScoreTxt1.setText("Top 1: " + prefs.getInt("highscore1", 0));
         highScoreTxt2.setText("Top 2: " + prefs.getInt("highscore2", 0));
         highScoreTxt3.setText("Top 3: " + prefs.getInt("highscore3", 0));

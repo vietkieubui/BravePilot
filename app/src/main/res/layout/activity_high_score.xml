@@ -11,36 +11,33 @@
         android:layout_height="match_parent"
         android:src="@drawable/background"
         android:scaleType="centerCrop"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="48sp"
+        android:layout_above="@id/highScoreWrap"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
         android:text="Brave Pilot!"
         android:textColor="#ffffff"
-        android:layout_above="@id/play"
-        android:layout_centerHorizontal="true"/>
+        android:textSize="48sp" />
+
     <TextView
+        android:id="@+id/replay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play"
-        android:textSize="64sp"
         android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:text="Replay"
         android:textColor="#000000"
-        android:id="@+id/play"/>
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textSize="24sp"-->
-<!--        android:textColor="#000000"-->
-<!--        android:text="High Score"-->
-<!--        android:id="@+id/highScoreTxt"-->
-<!--        android:layout_margin="16dp"-->
-<!--        android:layout_alignParentRight="true"/>-->
+        android:textSize="64sp" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:id="@+id/highScoreWrap"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,6 +74,9 @@
             android:text="Top 5: "
             android:textSize="24sp" />
     </LinearLayout>
+
+
+
     <ImageView
         android:layout_width="36dp"
         android:layout_height="36dp"

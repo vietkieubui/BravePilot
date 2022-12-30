@@ -18,6 +18,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceView;
 
 
+import com.example.bravepilot.Activities.HighScoreActivity;
 import com.example.bravepilot.Components.Bird;
 import com.example.bravepilot.Components.Bullet;
 import com.example.bravepilot.Components.Flight;
@@ -26,6 +27,7 @@ import com.example.bravepilot.Activities.MainActivity;
 import com.example.bravepilot.R;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -215,7 +217,7 @@ public class GameView extends SurfaceView implements Runnable {
     private void waitBeforeExiting() {
         try {
             Thread.sleep(3000);
-            activity.startActivity(new Intent(activity, MainActivity.class));
+            activity.startActivity(new Intent(activity, HighScoreActivity.class));
             activity.finish();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -223,11 +225,28 @@ public class GameView extends SurfaceView implements Runnable {
     }
 
     private void saveIfHighScore() {
-        if (prefs.getInt("highscore", 0) < score) {
+        int highScore[] = new int[6];
+        for(int i = 0; i <5; i++){
+            highScore[i] = prefs.getInt("highscore"+ String.valueOf(i+1),0);
+        }
+        highScore[5] = score;
+
+        for(int i = 0; i < 6; i++){
+            for(int j = i+1; j < 6; j++){
+                if(highScore[j] > highScore[i]){
+                    int tmp = highScore[i];
+                    highScore[i] = highScore[j];
+                    highScore[j] = tmp;
+                }
+            }
+        }
+
+        for(int i = 0; i < 6; i++){
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("highscore", score);
+            editor.putInt("highscore" + String.valueOf(i+1), highScore[i]);
             editor.apply();
         }
+
     }
 
     private void sleep() {
